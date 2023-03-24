@@ -9,11 +9,13 @@ const Adminlogin = async (req, res) => {
     await con.query(
       `select * from admin where admin_number=${adminnumber}`,
       async (error, result) => {
+        if(error)
+          console.log(error)
         if (result.length === 0) {
           res.json({ status: false, msg: "Account not Found" });
         } else if (adminpassword=== result[0].admin_password) {
           var p = await jwt.sign(
-            { id: result[0].userid },
+            { id:result[0].admin_id  },
             process.env.jwt_token,
             { expiresIn: "3d" }
           );
@@ -24,6 +26,7 @@ const Adminlogin = async (req, res) => {
             username: result[0].admin_name,
           });
         } else {
+
           res.json({ status: false, msg: "Wrong Password" });
         }
       }
