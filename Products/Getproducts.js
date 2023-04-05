@@ -1,9 +1,10 @@
 const con = require("../Connection/Connection");
 
 const Getproducts = async(req, res) => {
+  console.log("Received")
   try {
     await con.query(
-      `select products_id ,products_name,products_litre,products_price,products_minimum_quantity,products_available,products_img from products`,
+      `select canId ,canName,litre,price,MOQ,currentAvailable,canImage from canDetails`,
       (err, result) => {
         if (err) console.log(err);
         else {

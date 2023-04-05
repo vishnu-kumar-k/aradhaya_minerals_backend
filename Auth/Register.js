@@ -8,6 +8,8 @@ const Register=async(req,res)=>{
         var pass=await bcrypt.hash(userpassword,1);
         try{
           await  con.query(`select * from user where usernumber=${usernumber}`,async(error,result)=>{
+                if(error) 
+                    throw error
                 if(result.length!==0)
                 {
                     res.json({status:false,msg:"Account Exists with this number"});

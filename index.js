@@ -5,7 +5,7 @@ require("dotenv").config();
 const server = new express();
 
 server.use(express.json());
-server.use(cors({ origin: ["http://localhost:3000"], credentials: true }));
+server.use(cors());
 server.use(router)
 
 server.listen(process.env.port_number, () => {

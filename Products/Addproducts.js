@@ -17,7 +17,7 @@ const Addproducts=async(req,res)=>{
             var values=[
                 [pro_name,pro_price,pro_litre,pro_min_quantity,pro_available,pro_img,id]
             ]
-          await  con.query(`insert into products (products_name,products_price,products_litre,products_minimum_quantity,products_available,products_img,admin_id) values ?`,[values],(err,result)=>{
+          await  con.query(`insert into canDetails (canName,price,litre,MOQ,currentAvailable,canImage,adminId) values ?`,[values],(err,result)=>{
                 if(err){
                     console.log(err);
 
