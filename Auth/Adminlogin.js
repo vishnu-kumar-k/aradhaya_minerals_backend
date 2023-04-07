@@ -5,6 +5,7 @@ const con = require("../Connection/Connection");
 
 const Adminlogin = async (req, res) => {
   const { adminnumber, adminpassword } = req.body;
+  
   try {
     await con.query(
       `select * from admin where admin_number=${adminnumber}`,

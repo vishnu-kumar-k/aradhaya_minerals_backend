@@ -10,10 +10,11 @@ const EditProduct = require("./Products/EditProduct");
 const Getproducts = require("./Products/Getproducts");
 const ViewOrder=require("./Admin/ViewOrder");
 const Cart = require("./Admin/Cart");
+const updateStatus = require("./Admin/UpdateStatus");
 const router=express.Router();
 
 
-
+router.route("/admin/update").post(updateStatus)
 router.route("/register").post(Register);
 router.route("/login").post(Login);
 router.route("/getproducts").post(Getproducts);

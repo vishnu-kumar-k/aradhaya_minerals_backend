@@ -3,7 +3,7 @@ const con = require("../Connection/Connection")
 const ViewOrder =(req,res)=>
 {
     try{
-        con.query(`select * from orderDetails `,(err,result)=>{
+        con.query(`SELECT * FROM orderDetails ORDER BY orderId DESC`,(err,result)=>{
             if(err)
                 console.log(err)
             else
