@@ -3,7 +3,7 @@ require("dotenv").config();
 const bcrypt = require("bcrypt");
 const con = require("../Connection/Connection");
 
-const Adminlogin = async (req, res) => {
+const AdminLogin = async (req, res) => {
   const { adminnumber, adminpassword } = req.body;
   
   try {
@@ -37,4 +37,4 @@ const Adminlogin = async (req, res) => {
   }
 };
 
-module.exports = Adminlogin;
+module.exports = AdminLogin;

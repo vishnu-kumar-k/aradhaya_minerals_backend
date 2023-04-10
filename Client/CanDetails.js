@@ -1,10 +1,12 @@
 const con = require("../Connection/Connection");
 
-const Getproducts = async(req, res) => {
-  console.log("Received")
+const CanDetails = async(req, res) => {
   try {
     await con.query(
-      `select canId ,canName,litre,price,MOQ,currentAvailable,canImage from canDetails`,
+      `SELECT canId, canName, litre, price, MOQ, currentAvailable, canImage 
+      FROM canDetails
+      WHERE MOQ < currentAvailable;
+      `,
       (err, result) => {
         if (err) console.log(err);
         else {
@@ -17,4 +19,4 @@ const Getproducts = async(req, res) => {
   }
 };
 
-module.exports = Getproducts;
+module.exports = CanDetails;

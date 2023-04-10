@@ -22,8 +22,10 @@ const Order=(req,res)=>
                     var values=[]
                    await canDetails.forEach(i => {
                         t=[i.canId,i.quantity,result.insertId]
+                         con.query(`update canDetails set currentAvailable=currentAvailable-${i.quantity} where canId=${i.canId} `);
                         values.push(t);
                     });
+
                     await con.query(`insert into cart (canId,quantity,orderid) values ?`,[values],(e,r)=>
                     {
                         if(r)

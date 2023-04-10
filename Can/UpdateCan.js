@@ -1,6 +1,6 @@
 const con = require("../Connection/Connection");
 
-const EditProduct=(req,res)=>
+const UpdateCan=(req,res)=>
 {
     const{id,litre,min,price,available}=req.body.form;
     try{
@@ -19,4 +19,4 @@ const EditProduct=(req,res)=>
         res.json({status:false,error:err})
     }
 }
-module.exports=EditProduct;
+module.exports=UpdateCan;

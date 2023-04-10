@@ -3,7 +3,7 @@ const con = require("../Connection/Connection");
 require("dotenv").config();
 
 
-const Addproducts=async(req,res)=>{
+const CreateCan=async(req,res)=>{
     const{pro_name,pro_price,pro_litre,pro_min_quantity,pro_available,pro_img,jwt_token}=req.body;
     console.log(req.body)
     try
@@ -38,4 +38,4 @@ const Addproducts=async(req,res)=>{
 
 }
 
-module.exports=Addproducts;
+module.exports=CreateCan;

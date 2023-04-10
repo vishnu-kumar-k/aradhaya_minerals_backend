@@ -2,7 +2,7 @@ var jwt=require("jsonwebtoken");
 const con = require("../Connection/Connection");
 require("dotenv").config()
 
-const Verifyadmin=(req,res)=>{
+const SessionVerify=(req,res)=>{
     const{jwt_token}=req.body;
     try{
     var decode=jwt.verify(jwt_token,process.env.jwt_token)
@@ -32,4 +32,4 @@ catch(err)
 }
 
 
-module.exports=Verifyadmin;
+module.exports=SessionVerify;
