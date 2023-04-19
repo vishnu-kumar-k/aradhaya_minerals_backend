@@ -14,6 +14,7 @@ const OrderDetails = require("./Client/OrderDetails");
 const FetchCan = require("./Can/FetchCan");
 const UpdateCan = require("./Can/UpdateCan");
 const SessionVerify = require("./Auth/SessionVerify");
+const pincode = require("./Admin/pincode");
 const router=express.Router();
 
 //client
@@ -24,7 +25,7 @@ router.route("/login").post(Login);
 router.route("/can").post(CanDetails)
 router.route("/myorders").post(OrderDetails);
 router.route("/placeorder").post(Order);
-router.route("/fetchcan").post(FetchCan);
+router.route("/getproducts").post(FetchCan);
 
 
 
@@ -42,4 +43,9 @@ router.route("/admin/edit").put(UpdateCan);
 
 router.route("/admin/orders").post(ViewOrder);
 router.route("/admin/cart").post(Cart)
+
+
+
+
+router.route("/pincode").get(pincode)
 module.exports=router;
