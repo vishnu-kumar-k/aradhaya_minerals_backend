@@ -1,6 +1,6 @@
 const con = require("../Connection/Connection");
 
-const CanDetails = async(req, res) => {
+const CanDetails = async (req, res) => {
   try {
     await con.query(
       `SELECT canId, canName, litre, price, MOQ, currentAvailable, canImage 
