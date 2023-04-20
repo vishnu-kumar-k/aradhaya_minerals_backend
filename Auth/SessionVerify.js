@@ -3,7 +3,9 @@ const con = require("../Connection/Connection");
 require("dotenv").config()
 
 const SessionVerify=(req,res)=>{
-    const{jwt_token}=req.body;
+    console.log(req.body)
+    const{jwt_token}=req.headers;
+
     try{
     var decode=jwt.verify(jwt_token,process.env.jwt_token)
 
