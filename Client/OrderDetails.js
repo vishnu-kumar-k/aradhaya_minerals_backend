@@ -6,7 +6,7 @@ const OrderDetails = (req, res) => {
   try {
     var decode = jwt.verify(jwt_token, process.env.jwt_token);
     con.query(
-      `SELECT * FROM orderDetails where orderId=${decode.id} ORDER BY orderId DESC `,
+      `SELECT * FROM orderDetails where customerid=${decode.id} ORDER BY orderId DESC `,
       (err, result) => {
         if (err) {
           console.log(err);

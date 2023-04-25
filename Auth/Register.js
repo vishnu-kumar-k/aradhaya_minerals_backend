@@ -3,7 +3,7 @@ const jwt=require("jsonwebtoken")
 const bcrypt=require("bcrypt");
 require("dotenv").config()
 const Register=async(req,res)=>{
-        const{username,useremail,usernumber,userpassword}= req.body;
+        const{username,useremail,usernumber,userpassword,useraddress}= req.body;
         
         var pass=await bcrypt.hash(userpassword,1);
         try{
@@ -15,8 +15,10 @@ const Register=async(req,res)=>{
                     res.json({status:false,msg:"Account Exists with this number"});
                 }
                 else{
-                    const values=[[username,useremail,usernumber,pass]];
-                    await  con.query(`insert into user(username,useremail,usernumber,userpassword) values ?`,[values],async(e,re)=>{
+                    const values=[[username,useremail,usernumber,pass,useraddress]];
+                    await  con.query(`insert into user(username,useremail,usernumber,userpassword,useraddress) values ?`,[values],async(e,re)=>{
+                        if(e)
+                            throw e
                     var p=await jwt.sign({id:re.insertId},process.env.jwt_token,{expiresIn:"3d"});
                     res.json({status:true,"msg":"Account created Successfully","jwt":p});
                   })

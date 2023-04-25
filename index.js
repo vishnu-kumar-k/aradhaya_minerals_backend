@@ -2,13 +2,11 @@ const express = require("express");
 const cors = require("cors");
 const router = require("./Routes");
 require("dotenv").config();
-const formidable = require('express-formidable');
 
 const server = new express();
 
 server.use(express.json());
 server.use(cors());
-server.use(formidable());
 
 server.use(router)
 
