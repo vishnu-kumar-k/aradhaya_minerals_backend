@@ -14,7 +14,7 @@ const AdminLogin = async (req, res) => {
         if(error)
           console.log(error)
         else if (result.length === 0) {
-          res.json({ status: false, msg: "Account not Found" });
+          res.json({ status: false, msg: "Account not Found " });
         } else if (adminpassword=== result[0].admin_password) {
           var p = await jwt.sign(
             { id:result[0].admin_id  },
