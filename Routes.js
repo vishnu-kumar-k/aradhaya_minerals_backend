@@ -15,6 +15,9 @@ const FetchCan = require("./Can/FetchCan");
 const UpdateCan = require("./Can/UpdateCan");
 const SessionVerify = require("./Auth/SessionVerify");
 const pincode = require("./Admin/pincode");
+const AddPinCode = require("./Admin/Addpincode");
+const EditPinCode = require("./Admin/EditPinCode");
+const Users = require("./Admin/Users");
 const router=express.Router();
 
 //client
@@ -40,9 +43,11 @@ router.route("/admin/addproducts").post(CreateCan)
 router.route("/admin/addadmin").post(Addadmin)
 router.route("/admin/verify").post(SessionVerify)
 router.route("/admin/edit").put(UpdateCan);
-
+router.route("/admin/addpincode").post(AddPinCode)
+router.route("/admin/editpincode").post(EditPinCode)
 router.route("/admin/orders").post(ViewOrder);
 router.route("/admin/cart").post(Cart)
+router.route("/admin/users").get(Users);
 
 
 
