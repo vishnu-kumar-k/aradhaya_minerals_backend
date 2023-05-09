@@ -18,6 +18,10 @@ const pincode = require("./Admin/pincode");
 const AddPinCode = require("./Admin/Addpincode");
 const EditPinCode = require("./Admin/EditPinCode");
 const Users = require("./Admin/Users");
+const ViewAdmin = require("./Admin/ViewAdmin");
+const RemoveAdmin = require("./Admin/RemoveAdmin");
+const DashBoard = require("./Admin/DashBoard");
+
 const router=express.Router();
 
 //client
@@ -48,9 +52,9 @@ router.route("/admin/editpincode").post(EditPinCode)
 router.route("/admin/orders").post(ViewOrder);
 router.route("/admin/cart").post(Cart)
 router.route("/admin/users").get(Users);
-
-
-
+router.route("/admin/viewadmin").get(ViewAdmin);
+router.route("/admin/removeadmin").post(RemoveAdmin)
+router.route("/admin/dashboard").get(DashBoard)
 
 router.route("/pincode").get(pincode)
 module.exports=router;

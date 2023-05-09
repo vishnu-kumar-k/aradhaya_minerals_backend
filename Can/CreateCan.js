@@ -36,7 +36,7 @@ const CreateCan = async (req, res) => {
             if (err) {
               console.log(err);
             } else {
-              console.log("ksl");
+              
               res.json({ status: true, msg: "Product added" });
             }
           }
