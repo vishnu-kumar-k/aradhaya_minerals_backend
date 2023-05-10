@@ -22,6 +22,8 @@ const ViewAdmin = require("./Admin/ViewAdmin");
 const RemoveAdmin = require("./Admin/RemoveAdmin");
 const DashBoard = require("./Admin/DashBoard");
 const UserVerify = require("./Auth/UserVerify");
+const AddToCart = require("./Client/AddToCart");
+const Mycart = require("./Client/Mycart");
 
 const router=express.Router();
 
@@ -36,8 +38,8 @@ router.route("/placeorder").post(Order);
 router.route("/getproducts").post(FetchCan);
 
 router.route("/userverify").post(UserVerify)
-
-
+router.route("/addtocart").post(AddToCart)
+router.route("/mycart").post(Mycart)
 
 //admin
 router.route("/admin/update").post(updateStatus)
