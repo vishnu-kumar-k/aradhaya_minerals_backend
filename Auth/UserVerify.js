@@ -11,7 +11,6 @@ const UserVerify=(req,res)=>{
 
         if(decode)
         {
-            console.log(decode)
             con.query(`select * from user where userId=${decode.id}`,(err,result)=>{
                 if(err)
                     throw err
