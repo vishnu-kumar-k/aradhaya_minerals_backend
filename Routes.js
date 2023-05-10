@@ -21,6 +21,7 @@ const Users = require("./Admin/Users");
 const ViewAdmin = require("./Admin/ViewAdmin");
 const RemoveAdmin = require("./Admin/RemoveAdmin");
 const DashBoard = require("./Admin/DashBoard");
+const UserVerify = require("./Auth/UserVerify");
 
 const router=express.Router();
 
@@ -34,7 +35,7 @@ router.route("/myorders").post(OrderDetails);
 router.route("/placeorder").post(Order);
 router.route("/getproducts").post(FetchCan);
 
-
+router.route("/userverify").post(UserVerify)
 
 
 

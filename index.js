@@ -10,6 +10,6 @@ server.use(cors());
 
 server.use(router)
 
-server.listen(process.env.port_number, () => {
-  console.log(`Server Running on Port number ${process.env.port_number}`);
+server.listen(process.env.port_number || 8000, () => {
+  console.log(`Server Running on Port number 8000`);
 });
